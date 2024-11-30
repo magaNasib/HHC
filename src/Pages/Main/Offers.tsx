@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import discount from "./../../assets/discount.jpeg";
 import prayerImg from "./../../assets/prayer.png";
 import poolImg from "./../../assets/pool.png";
 import alcoholImg from "./../../assets/alcohol.png";
@@ -53,18 +52,17 @@ const mockOffers: Offer[] = [
     description:
       "Get up to 45% off private villas offering family-friendly amenities, alcohol-free stays, and secluded pools.",
     buttonText: "Book Private Villas",
-    image: discount,
+    image: poolImg,
   },
 ];
 
 const Offers: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [visibleItems, setVisibleItems] = useState(2); // Default: 2 items for desktop
+  const [visibleItems, setVisibleItems] = useState(2);
 
-  // Update visible items based on screen size
   useEffect(() => {
     const updateVisibleItems = () => {
-      const isMobile = window.innerWidth < 768; // Mobile breakpoint (Tailwind's `md` size)
+      const isMobile = window.innerWidth < 768;
       setVisibleItems(isMobile ? 1 : 2);
     };
 
@@ -90,16 +88,14 @@ const Offers: React.FC = () => {
       <h2 className="md:text-3xl text-xl font-bold">Offers</h2>
       <p>Promotions, deals, and special offers for you</p>
       <div className="relative flex items-center -z-0">
-        {/* Previous Button */}
         <button
           onClick={handlePrev}
           disabled={currentIndex === 0}
-          className="absolute -left-5 p-2 z-10 bg-gray-200 rounded-full disabled:opacity-50"
+          className="absolute -left-0 md:-left-6  p-2 z-10 bg-gray-200 rounded-full disabled:opacity-50"
         >
           <FaArrowLeft />
         </button>
 
-        {/* Carousel Items */}
         <div className="flex overflow-hidden w-full">
           <div
             className="flex transition-transform duration-500  h-[25rem] "
@@ -115,11 +111,9 @@ const Offers: React.FC = () => {
                 } p-4 grid flex-shrink-0 `}
               >
                 <div className="p-4 border relative rounded-lg overflow-hidden w-full shadow flex flex-col h-full">
-                  {/* Set flex-col and h-full */}
                   <h3 className="text-lg font-bold">{offer.title}</h3>
                   <p className="text-gray-600 mb-4">{offer.description}</p>
                   <div>
-                    {/* Push button to the bottom */}
                     <button className="bg-blue-500  text-white py-2 px-4 rounded">
                       {offer.buttonText}
                     </button>
@@ -137,11 +131,10 @@ const Offers: React.FC = () => {
           </div>
         </div>
 
-        {/* Next Button */}
         <button
           onClick={handleNext}
           disabled={currentIndex >= mockOffers.length - visibleItems}
-          className="absolute -right-5 z-10 p-2 bg-gray-200 rounded-full disabled:opacity-50"
+          className="absolute  -right-0 md:-right-6 z-10 p-2 bg-gray-200 rounded-full disabled:opacity-50"
         >
           <FaArrowRight />
         </button>

@@ -77,10 +77,10 @@ const SearchBox = ({
           {/* item 2 */}
           <div className="w-full md:w-[17rem] relative z-50">
             <Datepicker
-              toggleClassName={"text-white relative top-1"}
+              toggleClassName={"text-white -right-10 relative top-1"}
               placeholder="Check in ~ Check out"
               inputClassName={
-                "bg-transparent text-lg w-full md:w-[87%] w-[75%] border-none text-white placeholder:text-white focus:border-none focus:ring-transparent"
+                "bg-transparent text-lg w-full md:w-[87%] md:max-w-[100%] max-w-[70%] border-none text-white placeholder:text-white focus:border-none focus:ring-transparent"
               }
               value={dates}
               onChange={(newVal) => {
@@ -107,7 +107,7 @@ const SearchBox = ({
         {/* item 4 */}
         <button
           type="submit"
-          className="bg-white py-2 px-8 text-[#3d9a62] font-semibold hover:shadow-lg rounded-3xl w-full md:w-auto"
+          className="bg-white py-2 px-8 text-[#3d9a62] hover:bg-[#3d9a62] hover:text-white duration-300  font-semibold hover:shadow-2xl rounded-3xl w-full md:w-auto"
         >
           Search
         </button>
