@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import bg from "../../assets/bg-search.jpg";
 import SearchBox from "../../Components/SearchBox";
-import { AiFillStar } from "react-icons/ai";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { hotelData } from "../../consts/HotelData";
 import GuestInfoForm from "../../Components/GuestInfoForm";
 import Reviews from "../../Components/Reviews";
@@ -32,9 +32,11 @@ const Detail = () => {
         <h1 className={"text-3xl font-bold"}>{hotel?.name}</h1>
         <div className="pl-5">
           <span className={"flex"}>
-            {Array.from({ length: hotel?.starRating || 0 })?.map(() => (
-              <AiFillStar className={"fill-yellow-400"} />
-            ))}
+            {Array.from({ length: 5 })?.map((_, index) => {
+              if (index + 1 <= (hotel?.starRating || 5))
+                return <AiFillStar className={"fill-yellow-400 text-sm"} />;
+              return <AiOutlineStar className={"fill-yellow-400 text-sm"} />;
+            })}
           </span>
         </div>
         <div className={"grid grid-cols-1 lg:grid-cols-3 gap-4"}>

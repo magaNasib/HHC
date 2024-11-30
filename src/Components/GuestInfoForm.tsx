@@ -45,7 +45,11 @@ const GuestInfoForm = ({ hotelId, pricePerNight, hotel }: Props) => {
   };
 
   return (
-    <div className={"flex flex-col p-4 bg-[#333] gap-4 rounded-lg"}>
+    <div
+      className={
+        "flex flex-col p-4 bg-[#333] gap-4 md:ml-3 md:mt-0 mt-4  rounded-lg"
+      }
+    >
       <h3 className={"text-base font-bold text-white"}>
         {getPriceInCurrency(pricePerNight * rooms, currency)} {currency} per
       </h3>

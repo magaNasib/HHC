@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { HotelType } from "../models";
 import { IoLocation } from "react-icons/io5";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 type Props = {
   hotel: HotelType;
@@ -39,14 +40,23 @@ const LatestDestinationCard = ({ hotel }: Props) => {
         >
           {hotel.name}
         </span>
-        <span
-          className={
-            "text-gray-300 flex items-center gap-2 font-bold tracking-tight md:text-base text-sm"
-          }
-        >
-          <IoLocation color="#fff" />
-          {hotel.city}, {hotel.country}
-        </span>
+        <div className="pl-5">
+          <span
+            className={
+              "text-gray-300 flex items-center gap-2 font-bold tracking-tight md:text-base text-sm"
+            }
+          >
+            <IoLocation color="#fff" />
+            {hotel.city}, {hotel.country}
+          </span>
+          <span className={"flex"}>
+            {Array.from({ length: 5 })?.map((_, index) => {
+              if (index + 1 <= hotel?.starRating)
+                return <AiFillStar className={"fill-yellow-400 text-sm"} />;
+              return <AiOutlineStar className={"fill-yellow-400 text-sm"} />;
+            })}
+          </span>
+        </div>
       </div>
     </Link>
   );

@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <div className="bg-transparent text-lg absolute w-full left-0 top-0 z-10">
       <div className="container mx-auto py-4 font-semibold flex justify-between">
-        <h3 className="md:text-3xl text-lg text-[#E0E0E0]">
+        <h3 className="md:text-3xl text-xl text-[#E0E0E0]">
           <a href="" onClick={() => navigate("/")}>
             Halalholiday<span className="text-[#e1ab41]">check</span>
           </a>
