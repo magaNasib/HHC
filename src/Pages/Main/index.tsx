@@ -31,7 +31,7 @@ const Main = () => {
           </div>
         </div>
       </div>
-      <div className="py-10 bg-slate-100">
+      <div className="py-10  bg-slate-100">
         <div className="container mx-auto">
           <Offers />
         </div>

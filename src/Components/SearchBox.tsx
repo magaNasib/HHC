@@ -1,10 +1,14 @@
 import { FormEvent, useState } from "react";
-import Datepicker from "react-tailwindcss-datepicker";
+import Datepicker, { PopoverDirectionType } from "react-tailwindcss-datepicker";
 import AdjustableComponent from "../Pages/Main/Counter";
 import { useNavigate } from "react-router-dom";
 import { useSearchContext } from "../context/SearchContext";
 
-const SearchBox = () => {
+const SearchBox = ({
+  popoverDirection,
+}: {
+  popoverDirection?: PopoverDirectionType;
+}) => {
   const search = useSearchContext();
   const [destination, setDestination] = useState<string>(search?.destination);
   const [adults, setAdults] = useState(search?.adultCount);
@@ -76,7 +80,7 @@ const SearchBox = () => {
               toggleClassName={"text-white relative top-1"}
               placeholder="Check in ~ Check out"
               inputClassName={
-                "bg-transparent text-lg w-full md:w-[87%] w-[80%] border-none text-white placeholder:text-white focus:border-none focus:ring-transparent"
+                "bg-transparent text-lg w-full md:w-[87%] w-[75%] border-none text-white placeholder:text-white focus:border-none focus:ring-transparent"
               }
               value={dates}
               onChange={(newVal) => {
@@ -85,7 +89,7 @@ const SearchBox = () => {
                   endDate: newVal?.endDate ?? null,
                 });
               }}
-              popoverDirection={"up"}
+              popoverDirection={popoverDirection || "up"}
             />
           </div>
           {/* item 3 */}

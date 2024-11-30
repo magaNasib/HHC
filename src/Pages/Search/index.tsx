@@ -99,12 +99,12 @@ const Search = () => {
         />
         <div className="absolute bottom-20 left-0  w-full">
           <div className="container mx-auto">
-            <SearchBox />
+            <SearchBox popoverDirection="down" />
           </div>
         </div>
       </div>
 
-      <div className="container mx-auto mt-10">
+      <div className="container mx-auto my-10">
         <div className={"grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-5"}>
           <div
             className={

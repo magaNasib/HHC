@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import img from "./../../assets/discount.jpeg";
+import discount from "./../../assets/discount.jpeg";
+import prayerImg from "./../../assets/prayer.png";
+import poolImg from "./../../assets/pool.png";
+import alcoholImg from "./../../assets/alcohol.png";
+import familyImg from "./../../assets/family.png";
 
 interface Offer {
   id: number;
@@ -17,7 +21,7 @@ const mockOffers: Offer[] = [
     description:
       "Enjoy up to 50% off on family-friendly stays with separate pools for women and halal-certified dining options.",
     buttonText: "Explore Family Deals",
-    image: img, // Replace with your image URL
+    image: familyImg,
   },
   {
     id: 2,
@@ -25,7 +29,7 @@ const mockOffers: Offer[] = [
     description:
       "Indulge in 40% off luxury resorts featuring exclusive women-only pool areas and private spa treatments.",
     buttonText: "Book Luxury Deals",
-    image: img, // Replace with your image URL
+    image: poolImg,
   },
   {
     id: 3,
@@ -33,7 +37,7 @@ const mockOffers: Offer[] = [
     description:
       "Save 30% on stays with alcohol-free packages and halal-certified dining for a serene getaway.",
     buttonText: "Find Alcohol-Free Deals",
-    image: img, // Replace with your image URL
+    image: alcoholImg,
   },
   {
     id: 4,
@@ -41,7 +45,7 @@ const mockOffers: Offer[] = [
     description:
       "Discover up to 35% off city escapes with on-site prayer rooms and halal-certified dining options.",
     buttonText: "Discover City Deals",
-    image: img, // Replace with your image URL
+    image: prayerImg,
   },
   {
     id: 5,
@@ -49,7 +53,7 @@ const mockOffers: Offer[] = [
     description:
       "Get up to 45% off private villas offering family-friendly amenities, alcohol-free stays, and secluded pools.",
     buttonText: "Book Private Villas",
-    image: img, // Replace with your image URL
+    image: discount,
   },
 ];
 
@@ -98,7 +102,7 @@ const Offers: React.FC = () => {
         {/* Carousel Items */}
         <div className="flex overflow-hidden w-full">
           <div
-            className="flex transition-transform duration-500"
+            className="flex transition-transform duration-500  h-[25rem] "
             style={{
               transform: `translateX(-${currentIndex * (100 / visibleItems)}%)`,
             }}
@@ -107,24 +111,26 @@ const Offers: React.FC = () => {
               <div
                 key={offer.id}
                 className={`${
-                  visibleItems === 1 ? "w-1/3" : "w-1/2"
-                } p-4 flex-shrink-0 flex`} // Adjust width for mobile
+                  visibleItems === 1 ? "w-full" : "w-1/2"
+                } p-4 grid flex-shrink-0 `}
               >
-                <div className="p-4 border rounded-lg w-full shadow flex flex-col h-full">
+                <div className="p-4 border relative rounded-lg overflow-hidden w-full shadow flex flex-col h-full">
                   {/* Set flex-col and h-full */}
                   <h3 className="text-lg font-bold">{offer.title}</h3>
                   <p className="text-gray-600 mb-4">{offer.description}</p>
-                  <div className="mt-auto">
+                  <div>
                     {/* Push button to the bottom */}
-                    <button className="bg-blue-500 text-white py-2 px-4 rounded">
+                    <button className="bg-blue-500  text-white py-2 px-4 rounded">
                       {offer.buttonText}
                     </button>
                   </div>
-                  <img
-                    src={offer.image}
-                    alt={offer.title}
-                    className="mt-4 w-full h-auto object-contain object-right rounded"
-                  />
+                  <div className="w-full md:h-[60%] h-[40%] overflow-hidden absolute left-0 bottom-0">
+                    <img
+                      src={offer.image}
+                      alt={offer.title}
+                      className="mt-4 w-full h-[100%]  wa object-cover  object-right rounded"
+                    />
+                  </div>
                 </div>
               </div>
             ))}

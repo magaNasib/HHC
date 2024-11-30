@@ -24,7 +24,7 @@ const Detail = () => {
         />
         <div className="absolute bottom-20 left-0  w-full">
           <div className="container mx-auto">
-            <SearchBox />
+            <SearchBox popoverDirection="down" />
           </div>
         </div>
       </div>
